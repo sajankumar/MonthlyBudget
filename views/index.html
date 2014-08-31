@@ -1,0 +1,61 @@
+<% include header.html %>
+
+<div class="container">
+ <div class="row">
+     <div class="col-lg-12">
+         <div class="currency-block">
+             <input list="currency" placeholder="choose your currency type" class="form-control input-list">
+             <datalist id="currency">
+                 <option value="USD" id="0"> </option>
+                 <option value="EURO" id="1"></option>
+                 <option value="RUPEE" id="2"></option>
+             </datalist>
+         </div>
+         <div class="clear"></div>
+         <div class="title">
+             <h3>Income</h3>
+         </div>
+
+         <div class="row">
+
+             <div class="col-lg-6">
+               <div class="label-block"><label>Gross Salaries?:  </label></div>
+               <div class="input-block"><input name="grosssalaries" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+                <div class="label-block">  <label>Pensions & Allowances?:  </label></div>
+                <div class="input-block"><input name="pensionallowances" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+                 <div class="label-block"><label>Interest Income?:  </label></div>
+                 <div class="input-block"><input name="interestincome" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+             </div>
+             <div class="col-lg-6">
+                 <div class="label-block"><label> Real Estate Income?: </label></div>
+                 <div class="input-block">  <input name="realestateincome" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+                 <div class="label-block"><label>Other Income?: </label></div>
+                 <div class="input-block"><input name="otherincome" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+                 <div class="label-block"> <label>Loan Advances?: </label></div>
+                 <div class="input-block"><input name="loanadvances" class="form-control" type="text" onkeypress="return keypresshandler(event)"  placeholder="$0"></div>
+
+             </div>
+         </div>
+
+     </div>
+ </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="title">
+                <h3>Expenses</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="button-block">
+        <a href="javascript:void(0)" class="btn btn-primary" id="calculate">Calculate</a>
+    </div>
+</div>
+
+<% include footer.html %>
