@@ -45,7 +45,7 @@ $(document).ready(function(){
              "LoanAdvances" : $("input[name='loanadvances']").val()
 
          }]}, function(success,fail){
-                alert(success.data[0].GrossSalaries)
+                alert(success.data[0].GrossSalaries);
 
 
          });
