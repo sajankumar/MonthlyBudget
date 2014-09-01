@@ -21,14 +21,15 @@ $(document).ready(function(){
         var list = $('#currency');
         var c_picked = $(list).find("option[value='"+ c_val +"']");
         currency = $(c_picked).attr('id');
-
-
-
-    })
+    });
 
     $("input[type='text']").focusout( function(){
-           var am =  '$' + $(this).val()
-           var amount = $(this).val(am);
+
+         if($(this).val() !="" && $(this).val().charAt(0) != "$"){
+             var am =  '$' + $(this).val()
+             var amount = $(this).val(am);
+
+         }
 
      })
 
