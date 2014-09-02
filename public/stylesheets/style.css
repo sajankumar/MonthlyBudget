@@ -1,6 +1,19 @@
 h1{border-bottom: 1px solid #000; text-align: center; padding-bottom: 5px;}
 input[type='text']{padding-left: 10px; text-align: right}
-.currency-block{width: 20%; float: right}
-.clear{clear: both;}
 .input-block{margin-top: 10px;}
 .label-block{margin-top: 10px;}
+.button-block{margin-top: 10px; margin-bottom: 10px;}
+.currency-block{text-align: center; width: 100%}
+
+
+@media only screen and (max-width:768px) {
+
+
+
+}
+@media only screen and (min-width:1200px) {
+   .recreation-block{margin-top: -205px;}
+    .other-expenses-block{margin-top: -560px;}
+    .currency-block{width: 20%; float: right}
+    .clear{clear: both;}
+}

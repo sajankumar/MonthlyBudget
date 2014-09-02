@@ -15,6 +15,9 @@ function keypresshandler(event)
 
 $(document).ready(function(){
 
+    $("input[type='text']").prop('required');
+
+
     $('.input-list').on('change',function(){
 
         var c_val = $(this).val();
@@ -31,7 +34,8 @@ $(document).ready(function(){
 
          }
 
-     })
+     });
+
 
      $('#calculate').on('click', function(event){
 
