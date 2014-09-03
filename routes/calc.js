@@ -76,13 +76,33 @@ router.post('/',function(req,res){
     var currency = "$";
     var percentagesym = "%";
     var data = {}
-    data.totalincome =   totalincome;
-    data.totalexpenses =  totalexpenses;
-    data.expensespent =   precentage.howMuchSpent(totalexpenses, totalincome) + percentagesym;
-    var balance = totalincome - totalexpenses;
-    var prec =   precentage.howMuchSpent(balance, totalincome) + percentagesym;
-    data.remain =   balance;
-    data.prec = prec;
+
+    if(totalexpenses > totalincome)
+    {
+        data.totalincome =   "unable to calculate due to wrong information provided/ your total expenses is greater than your total income";
+        data.totalexpenses = "unable to calculate due to wrong information provided / your total expenses is greater than your total income";
+        data.expensespent =  "unable to calculate due to wrong information provided / your total expenses is greater than your total income";
+        data.remain = "unable to calculate due to wrong information provided / your total expenses is greater than your total income";
+        data.prec = "unable to calculate due to wrong information provided / your total expenses is greater than your total income";
+
+    }else if(totalincome <= 0){
+        data.totalincome =   "please provide your source of income";
+        data.totalexpenses = "please provide your source of income";
+        data.expensespent =  "please provide your source of income";
+        data.remain = "please provide your source of income";
+        data.prec = "please provide your source of income";
+
+    }
+    else {
+        data.totalincome = totalincome;
+        data.totalexpenses = totalexpenses;
+        data.expensespent = precentage.howMuchSpent(totalexpenses, totalincome) + percentagesym;
+        var balance = totalincome - totalexpenses;
+        var prec = precentage.howMuchSpent(balance, totalincome) + percentagesym;
+        data.remain = balance;
+        data.prec = prec;
+    }
+
     data.expenses = expensesArray;
     data.spent = [];
 
