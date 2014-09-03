@@ -1,10 +1,11 @@
-h1{border-bottom: 1px solid #000; text-align: center; padding-bottom: 5px;}
+h1{border-bottom: 1px solid #000; text-align: center; padding-bottom: 5px; font-size: 16px;}
 input[type='text']{padding-left: 10px; text-align: right}
 .input-block{margin-top: 10px;}
 .label-block{margin-top: 10px;}
-.button-block{margin-top: 10px; margin-bottom: 10px;}
+.button-block{position: fixed; top: 70px; z-index: 1030}
 .currency-block{text-align: center; width: 100%}
-
+body{padding-top: 130px;}
+.heading{background: lightgray; height: 110px;}
 
 @media only screen and (max-width:768px) {
 
@@ -12,6 +13,7 @@ input[type='text']{padding-left: 10px; text-align: right}
 
 }
 @media only screen and (min-width:1200px) {
+    h1{font-size: 35px}
    .recreation-block{margin-top: -205px;}
     .other-expenses-block{margin-top: -560px;}
     .currency-block{width: 20%; float: right}
