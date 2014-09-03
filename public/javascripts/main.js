@@ -28,13 +28,18 @@ $(document).ready(function(){
 
     $("input[type='text']").focusout( function(){
 
-         if($(this).val() !="" && $(this).val().charAt(0) != "$"){
-             var am =  '$' + $(this).val()
-             var amount = $(this).val(am);
+//         if($(this).val() !="" && $(this).val().charAt(0) != "$"){
+//             var am =  '$' + $(this).val()
+//             var amount = $(this).val(am);
+//
+//         }
 
-         }
+                $(this).formatCurrency();
 
      });
+
+     $('span').formatCurrency();
+
 
 
      $('#calculate').on('click', function(event){

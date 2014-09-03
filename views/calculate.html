@@ -6,7 +6,9 @@
   </div>
 
    <div class="row">
-    <h3> <%= value.totalincome %> </h3>
+    <h3> Total Income : <span><%= value.totalincome %></span> </h3>
+    <h3> Total Expenses :<span><%= value.totalexpenses + "  "  %></span> <%= value.expensespent %> </h3>
+    <h3>Surplus / Deficit(-): <span><%= value.remain %></span> <%= value.prec %></h3>
     <%for(var i=0; i<value.expenses.length; i++) { %>
 
        <div class="col-lg-4">

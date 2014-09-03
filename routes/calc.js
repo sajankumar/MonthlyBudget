@@ -22,9 +22,12 @@ router.post('/',function(req,res){
     var totalother = 0;
 
     var expensesArray = ['Shelter', 'Transportation', 'Food & Clothing', 'Health and Personal care', 'Recreation', 'Education', 'Other Expenses'];
-    for(var key in req.body){
+    for(var key in req.body) {
         //console.log('key :' + "==" + key + " and " + "value :" + "==" + req.body[key]);
+
         //console.log(precentage.incomeOrExpenses(key) + "key logged");
+
+
         if(req.body[key] != ""){
            var type = precentage.incomeOrExpenses(key)[0];
               switch (type){
@@ -69,32 +72,39 @@ router.post('/',function(req,res){
     console.log(totaleducation + "total education");
     console.log(totalother + "total other expenses");
 
+    var totalexpenses = totalshelter + totaleducation + totalfoodandclothing + totalhealth + totalother + totalrecreation + totaltransportation;
     var currency = "$";
     var percentagesym = "%";
     var data = {}
-    data.totalincome = "Total Income : " + currency + totalincome;
+    data.totalincome =   totalincome;
+    data.totalexpenses =  totalexpenses;
+    data.expensespent =   precentage.howMuchSpent(totalexpenses, totalincome) + percentagesym;
+    var balance = totalincome - totalexpenses;
+    var prec =   precentage.howMuchSpent(balance, totalincome) + percentagesym;
+    data.remain =   balance;
+    data.prec = prec;
     data.expenses = expensesArray;
     data.spent = [];
 
 
-        data.spent[0] = percentagesym + precentage.howMuchSpent(totalshelter, totalincome);
+        data.spent[0] =  precentage.howMuchSpent(totalshelter, totalincome) + percentagesym;
 
 
-        data.spent[1] = percentagesym +precentage.howMuchSpent(totaltransportation, totalincome);
+        data.spent[1] =  precentage.howMuchSpent(totaltransportation, totalincome) + percentagesym;
 
 
-        data.spent[2] = percentagesym + precentage.howMuchSpent(totalfoodandclothing, totalincome);
+        data.spent[2] =  precentage.howMuchSpent(totalfoodandclothing, totalincome) +  percentagesym;
 
-           data.spent[3] = percentagesym + precentage.howMuchSpent(totalhealth,totalincome);
-
-
-        data.spent[4] =percentagesym + precentage.howMuchSpent(totalrecreation, totalincome);
+           data.spent[3] =  precentage.howMuchSpent(totalhealth,totalincome) + percentagesym
 
 
-        data.spent[5] =percentagesym + precentage.howMuchSpent(totaleducation, totalincome);
+        data.spent[4] =  precentage.howMuchSpent(totalrecreation, totalincome) + percentagesym;
 
 
-        data.spent[6] =percentagesym+ precentage.howMuchSpent(totalother, totalincome);
+        data.spent[5] =  precentage.howMuchSpent(totaleducation, totalincome) + percentagesym;
+
+
+        data.spent[6] = precentage.howMuchSpent(totalother, totalincome) + percentagesym;
 
 
     res.render('calculate.html', {value:data});

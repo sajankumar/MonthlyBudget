@@ -10,7 +10,11 @@ var calculate = {
     },
     amount:function (amount) {
 
-    return parseInt(amount.substring(1));
+     amount = amount.substring(1);
+     var val = amount.split(',');
+     amount = val[0] + val[1];
+
+    return parseInt(amount);
    },
    incomeOrExpenses:function(key){
        var type = key.split('.');
